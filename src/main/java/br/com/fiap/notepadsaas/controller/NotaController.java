@@ -3,10 +3,7 @@ package br.com.fiap.notepadsaas.controller;
 import br.com.fiap.notepadsaas.model.Nota;
 import br.com.fiap.notepadsaas.repository.NotaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,6 +12,8 @@ import java.util.List;
  * Created by danilopereira on 08/08/17.
  */
 @RestController
+@CrossOrigin
+@RequestMapping(value = "/nota")
 public class NotaController {
 
     @Autowired
@@ -28,5 +27,10 @@ public class NotaController {
     @PostMapping(value = "/")
     public void save(@RequestBody Nota nota){
         notaRepository.save(nota);
+    }
+
+    @GetMapping(value = "/titulo/{titulo}")
+    public List<Nota> findByTitulo(@PathVariable String titulo){
+        return notaRepository.findByTitulo(titulo);
     }
 }
