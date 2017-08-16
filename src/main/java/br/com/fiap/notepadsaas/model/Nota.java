@@ -11,7 +11,7 @@ public class Nota {
 
     @Id
     private String id;
-    private String tipo;
+    private String titulo;
     private String texto;
 
     public String getId() {
@@ -22,12 +22,12 @@ public class Nota {
         this.id = id;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public String getTexto() {
@@ -46,14 +46,14 @@ public class Nota {
         Nota nota = (Nota) o;
 
         if (id != null ? !id.equals(nota.id) : nota.id != null) return false;
-        if (tipo != null ? !tipo.equals(nota.tipo) : nota.tipo != null) return false;
+        if (titulo != null ? !titulo.equals(nota.titulo) : nota.titulo != null) return false;
         return texto != null ? texto.equals(nota.texto) : nota.texto == null;
     }
 
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (tipo != null ? tipo.hashCode() : 0);
+        result = 31 * result + (titulo != null ? titulo.hashCode() : 0);
         result = 31 * result + (texto != null ? texto.hashCode() : 0);
         return result;
     }
